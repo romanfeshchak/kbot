@@ -1,4 +1,4 @@
-module github.com/andriikovalchuka/kbot
+module github.com/romanfeshchak/kbot
 
 
 go 1.20
