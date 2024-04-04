@@ -1,5 +1,5 @@
 APP=$(shell basename $(shell git remote get-url origin))
-REGISTRY=ghcr.io/romanfeshchak
+REGISTRY=ghcr.io/romanfeshchak/
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux# darwin windows
 TARGETARCH=amd64# amd64 arm64
@@ -29,7 +29,7 @@ build: format get
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/romanfeshchak/kbot/cmd.appVersion=${VERSION}
 
 image:
-	docker build . -t ${REGESTRY}/${APP}:${VERSION}-${TARGETARCH}
+	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 push:
 	docker push ${REGESTRY}/${APP}:${VERSION}-${TARGETARCH}
