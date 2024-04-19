@@ -1,0 +1,16 @@
+# Default values for kbot.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: romanfeshchak
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "v1.0.0-f071442-amd64"
+
+secret:
+  name: "kbot"
+  tokenKey: "token"
+  tokenName: "TELE_TOKEN"
