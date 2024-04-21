@@ -24,10 +24,8 @@ jobs:
           username: ${{ secrets.GH_USR }}
           password: ${{ secrets.GH_TOKEN }}
       - name: Build&Push
-        env:
-          APP: "kbot"
-          REGISTRY: ${{ secrets.GH_USR }}
         run: make image push TARGETARCH=$TARGETARCH
+        
       - name: Clean
         run: make clean TARGETARCH=$TARGETARCH
 
