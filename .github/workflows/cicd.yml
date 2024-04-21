@@ -19,7 +19,7 @@ jobs:
         run: make test
       - name: Docker Login to ghrc.io
         run: |
-          docker login --username romanfeshchak --password ${{ secret.GH_TOKEN }} ghrc.io
+          docker login --username romanfeshchak --password ${{ secrets.GH_TOKEN }} ghrc.io
 #      - name: Docker Hub login
 #        uses: docker/login-action@v2
 #        with:
