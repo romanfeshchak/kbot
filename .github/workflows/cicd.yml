@@ -17,22 +17,19 @@ jobs:
 
       - name: Run test
         run: make test
-      - name: Docker Hub login
+  #Build and push      
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_TOKEN }}
-      - name: Build&Push
-        env:
-          APP: "kbot"
-          REGISTRY: ${{ github.actor }}
-        run: make image push TARGETARCH=$TARGETARCH
-      - name: Clean
-        run: make clean TARGETARCH=$TARGETARCH
-        
-      - name: Clean
-        run: make clean TARGETARCH=$TARGETARCH
+          
+      - name: Build image
+        run: make image
+
+      - name: Push image
+        run: make push  
 
   cd:
     name: CD
