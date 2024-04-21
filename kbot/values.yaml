@@ -8,7 +8,8 @@ image:
   repository: romanfeshchak
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.0-f071442-amd64"
+  tag: "v1.0.0-f071442"
+  arch: amd64
 
 secret:
   name: "kbot"
